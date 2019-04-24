@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { hashHistory } from 'react-router'
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
 import validator from 'validator'
@@ -31,23 +30,6 @@ class LoginForm extends Component {
       this.setState({ errors: { password: 'Must be at least 6 characters long' } })
       return false
     }
-
-    // this.props.startSpinner()
-    this.setState({ errors: {} })
-
-    return this.props.login(this.state.username, this.state.password)
-      .then((response) => {
-        if (response.loggedIn === true) {
-          hashHistory.push('/home')
-        }
-        else {
-          // this.props.stopSpinner()
-          // this.props.openSnack(4000, 'Failed to login.')
-        }
-      })
-      .catch(err => {
-        // console.error(err)
-      })
   }
 
   render() {
@@ -68,16 +50,17 @@ class LoginForm extends Component {
           </div>
 
           <div className="submit">
-            <RaisedButton className="bigLogin" label="Login" type="submit" primary />
-            {/* <DynamicSpinner spinnerRunning={this.props.spinnerRunning} /> */}
+            <RaisedButton
+              label="disabled"
+              disabled
+            />
+            <RaisedButton
+              className="bigLogin"
+              label="Login"
+              type="submit"
+              primary
+            />
           </div>
-          {/* <DynamicSnack
-                        snackOpen={this.props.snackOpen}
-                        snackTimer={this.props.snackTimer}
-                        snackMessage={this.props.snackMessage}
-                        closeSnack={this.props.closeSnack}
-                        stopSpinner={this.props.stopSpinner}
-                    /> */}
         </form>
       </div>
     )

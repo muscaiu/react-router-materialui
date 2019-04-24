@@ -10,9 +10,12 @@ class Login extends Component {
   render() {
     return (
       <div className="Login">
-        <Header/>
+        <Header />
         <LoginForm />
         <LoginFooter />
+        <button onClick={() => this.props.onChangetheme()}>
+          toggle theme
+        </button>
       </div>
     )
   }

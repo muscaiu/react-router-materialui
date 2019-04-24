@@ -1,15 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import injectTapEventPlugin from 'react-tap-event-plugin';
-import { browserHistory } from 'react-router'
 
+import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-import Routes from './routes'
-
-injectTapEventPlugin();
 
 ReactDOM.render(
-    <Routes history={browserHistory} />,    
+    <App />,
     document.getElementById('root')
 )
 
