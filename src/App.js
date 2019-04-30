@@ -1,7 +1,9 @@
 import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
+import Home from './components/Home'
 import Login from './components/Login'
 
 import {
@@ -29,7 +31,20 @@ class App extends React.Component {
   render() {
     return (
       < MuiThemeProvider muiTheme={getMuiTheme(this.state.selectedTheme)} >
-        <Login onChangeTheme={this.handleChangetheme} />
+        <Router>
+          <Switch>
+
+            <Route path="/" exact component={Home} />
+            <Route
+              path="/login"
+              render={(props) =>
+                <Login {...props}
+                  onChangeTheme={this.handleChangetheme}
+                />}
+            />
+
+          </Switch>
+        </Router>
       </MuiThemeProvider >
     )
   }
