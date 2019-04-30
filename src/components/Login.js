@@ -13,9 +13,9 @@ class Login extends Component {
         <Header />
         <LoginForm />
         <LoginFooter />
-        <button onClick={() => this.props.onChangetheme()}>
-          toggle theme
-        </button>
+        <button onClick={() => this.props.onChangeTheme('default')}>default</button>
+        <button onClick={() => this.props.onChangeTheme('kimochiTheme')}>kimochiTheme</button>
+        <button onClick={() => this.props.onChangeTheme('darkBaseTheme')}>darkTheme</button>
       </div>
     )
   }
